@@ -1,0 +1,40 @@
+<!doctype html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<link rel="stylesheet" href="css/index.css">
+</head>
+<body ng-app='myapp' ng-controller='app'>
+	<div>
+		<input type="text" ng-model='txt'>
+		<table>
+			<thead>
+				<tr>
+					<td ng-click='add("first")'>firstName <span ng-class='Color("first")'></span></td>
+					<td ng-click='add("last")'>lastName <span ng-class='Color("last")'></span></td>
+					<td ng-click='add("tel")'>tel <span ng-class='Color("tel")'></span></td>
+					<td ng-click='add("phone")'>phone <span ng-class='Color("phone")'></span></td>
+					<td ng-click='add("date")'>birthday <span ng-class='Color("date")'></span></td>
+				</tr>
+				
+			</thead>
+			<tbody>
+				<tr ng-repeat='per in persons | filter:search:value | orderBy:sort:pai'>
+					<td>{{per.first}}</td>
+					<td>{{per.last}}</td>
+					<td>{{per.tel}}</td>
+					<td>{{per.phone}}</td>
+					<td>{{per.date | date:'yyyy年MM月dd日'}}</td>
+				</tr>
+			</tbody>
+		</table>
+	</div>
+	<div>
+		<input type="text" ng-model='text'>
+		<button ng-click='alert()'>点击</button>
+	</div>
+	<script src="js/angular.min.js"></script>
+	<script src="js/index.js"></script>
+</body>
+</html>
